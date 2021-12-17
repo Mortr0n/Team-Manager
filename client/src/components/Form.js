@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 
 const Form = (props) => {
-    const { playerNameState, preferredPositionState, game1State, game2State, game3State, onSubmitProp } = props;
+    const { playerNameState, preferredPositionState, game1State, game2State, game3State, onSubmitProp, players, setPlayers } = props;
     const [ playerName, setPlayerName ] = useState(playerNameState);
     const [ preferredPosition, setPreferredPosition ] = useState(preferredPositionState);
     // default starting point is Undecided not able to change in form
@@ -17,10 +18,13 @@ const Form = (props) => {
         onSubmitProp({ playerName, preferredPosition, game1, game2, game3 });
     }
 
+    
+
+
     return(
-        <form>
+        <form onSubmit={formSubmitHandler}>
             {/* TODO: make sure to add validations!!! */}
-            <div onSubmit={formSubmitHandler} className='form-group'>
+            <div  className='form-group'>
                 <label htmlFor="playerName" className="form-label">Player Name:</label>
                 <input
                 type="text"

@@ -10,9 +10,10 @@ const CreatePlayer = (props) => {
             .then((res) => {
                 console.log(res.data);
                 setPlayers([...players, res.data ]);
+                console.log(players);
             })
             .catch((err) => {
-                console.log(err.response.data);
+                console.log(err.response);
             })
     }
 
