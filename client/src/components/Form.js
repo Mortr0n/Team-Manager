@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import axios from 'axios';
-
 
 const Form = (props) => {
-    const { playerNameState, preferredPositionState, game1State, game2State, game3State, onSubmitProp, players, setPlayers } = props;
+    const { errors, setErrors, playerNameState, preferredPositionState, game1State, game2State, game3State, onSubmitProp, players, setPlayers } = props;
     const [ playerName, setPlayerName ] = useState(playerNameState);
     const [ preferredPosition, setPreferredPosition ] = useState(preferredPositionState);
     // default starting point is Undecided not able to change in form
@@ -13,26 +11,27 @@ const Form = (props) => {
     
     const formSubmitHandler = (e) => {
         e.preventDefault();
-        console.log("got here");
+        console.log(playerName);
         // passing these items as an object for create and update functions
         onSubmitProp({ playerName, preferredPosition, game1, game2, game3 });
     }
 
-    
-
-
     return(
         <form onSubmit={formSubmitHandler}>
-            {/* TODO: make sure to add validations!!! */}
-            <div  className='form-group'>
-                <label htmlFor="playerName" className="form-label">Player Name:</label>
+            <div  className='form-group'>                
+                {/* Change label to the error if there are errors */}
+                {
+                errors.playerName ?
+                <label className='errors fs-4'>{errors.playerName.message}</label> :
+                <label htmlFor="playerName" className="form-label fs-4">Player Name:</label>
+                }
                 <input
                 type="text"
                 value={playerName}
                 onChange={(e) => setPlayerName(e.target.value)} />
             </div>
             <div className='form-group'>
-                <label htmlFor='preferredPosition' className='form-label'>Preferred Position(Optional):</label>
+                <label htmlFor='preferredPosition' className='form-label fs-4'>Preferred Position(Optional):</label>
                 <input
                 type="text"
                 value={preferredPosition}

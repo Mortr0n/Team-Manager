@@ -2,6 +2,40 @@
   text-align: center;
 }
 
+.wrapper {
+  
+  margin: 0 auto;
+  border: .2em solid black;
+  background-color: lightgray;
+  padding: 2.5em;
+}
+
 .bar {
   display: inline-block;
+}
+
+.playerManager {
+  
+  margin: 0 auto;
+  padding: 2.5em;
+  border: .2em solid black;
+  background-color: whitesmoke;
+}
+
+.playerList {
+  margin: 0 auto;
+  border: .2em solid black;
+}
+
+.playerCreateContainer {
+  padding: 2em;
+  border: .2em solid black;
+}
+
+.errors {
+  color: red;
+}
+
+.secondaryLinkDiv {
+  padding: 2em;
 }
