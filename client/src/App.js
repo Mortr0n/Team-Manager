@@ -16,7 +16,9 @@ function App() {
     <div className="App">
       {/* Main Routes */}
       <Router>
+        {/* Manage player functionality is mostly complete */}
         <ManagePlayer path="/player/:pathVar/:id" players={players} setPlayers={setPlayers} removeFromDom={removeFromDom} />
+        {/* TODO: Finish player status */}
         <PlayerStatus path="/status/game/:gameId" players={players} setPlayers={setPlayers} />
       </Router>
       
